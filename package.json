@@ -1,12 +1,12 @@
 {
-  "name": "sine-waves",
+  "name": "@JEbertPrime/sine-waves",
   "version": "1.0.0",
   "description": "Helper class and react component for rendering sine waves to a canvas",
   "author": "Justin Ebert",
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git@github.com:JEbertPrime/sine-waves.git"
+    "url": "git+ssh://git@github.com/JEbertPrime/sine-waves.git"
   },
   "homepage": "https://JEbertPrime.github.io/",
   "publishConfig": {
