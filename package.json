@@ -1,16 +1,16 @@
 {
-  "name": "react-rollup-boilerplate",
-  "version": "5.0.0",
-  "description": "Boilerplate for writing React Libraries bundled with Rollup.js to commonJs and ES6 Modules and Storybookt",
-  "author": "Kai Hotz",
+  "name": "sine-waves",
+  "version": "1.0.0",
+  "description": "Helper class and react component for rendering sine waves to a canvas",
+  "author": "Justin Ebert",
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git@github.com:KaiHotz/react-rollup-boilerplate.git"
+    "url": "git@github.com:JEbertPrime/sine-waves.git"
   },
-  "homepage": "https://github.com/KaiHotz/react-rollup-boilerplate",
+  "homepage": "https://github.com/JEbertPrime/sine-waves",
   "publishConfig": {
-    "registry": "https://npm.pkg.github.com/<YourGitUserName>"
+    "registry": "https://npm.pkg.github.com/JEbertPrime"
   },
   "main": "dist/cjs/index.js",
   "module": "dist/esm/index.js",
