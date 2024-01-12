@@ -8,7 +8,7 @@
     "type": "git",
     "url": "git@github.com:JEbertPrime/sine-waves.git"
   },
-  "homepage": "https://github.com/JEbertPrime/sine-waves",
+  "homepage": "https://JEbertPrime.github.io/",
   "publishConfig": {
     "registry": "https://npm.pkg.github.com/JEbertPrime"
   },
