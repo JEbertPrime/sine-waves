@@ -1,24 +1,20 @@
-import React, { useRef, useEffect } from 'react';
+import React, { useRef, useEffect, CanvasHTMLAttributes } from 'react';
 
 import { SineWave } from './SineWave';
 
-export const WaveChart = (props: {
+interface WaveChartAttributes<T> extends CanvasHTMLAttributes<T> {
   waves: SineWave[];
-  startFull?: boolean;
-  fullWidth?: boolean;
-  height?: number;
-  width?: number;
-  step?: number;
-}) => {
-  const { waves, startFull, fullWidth, height = 400, width, step = 4 } = props;
+  startFull: boolean;
+  step: number;
+}
+
+export const WaveChart = (props: WaveChartAttributes<HTMLCanvasElement>) => {
+  const { waves, startFull, height = 400, width = 800, step = 4, ...rest } = props;
 
   const canvasRef = useRef();
   const frameRef = useRef(0);
 
   function drawWaves(waves: SineWave[], context: CanvasRenderingContext2D, x: number, xOffset: number, step?: number) {
-    if (context.canvas.width != (fullWidth ? window.innerWidth : window.innerWidth * 0.8)) {
-      context.canvas.width = fullWidth ? window.innerWidth : window.innerWidth * 0.8;
-    }
     context.clearRect(0, 0, context.canvas.width, context.canvas.height);
     const yOffset = context.canvas.height / 2;
     for (let i = waves.length - 1; i >= 0; i--) {
@@ -54,17 +50,10 @@ export const WaveChart = (props: {
   useEffect(() => {
     if (canvasRef.current) {
       const canvas: HTMLCanvasElement = canvasRef.current;
-      canvas.width = width ? width : fullWidth ? window.innerWidth : window.innerWidth * 0.8;
       const context = canvas.getContext('2d');
       if (context) {
         frameRef.current = requestAnimationFrame(() =>
-          drawWaves(
-            waves,
-            context,
-            startFull ? (width ? width : fullWidth ? window.innerWidth : window.innerWidth * 0.8) : 0,
-            0,
-            step,
-          ),
+          drawWaves(waves, context, startFull ? canvas.width : 0, 0, step),
         );
       }
     }
@@ -72,5 +61,5 @@ export const WaveChart = (props: {
     return () => cancelAnimationFrame(frameRef.current);
   });
 
-  return <canvas ref={canvasRef} {...{ width }} height={height} />;
+  return <canvas ref={canvasRef} {...{ width, height, ...rest }} />;
 };

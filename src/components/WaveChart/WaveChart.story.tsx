@@ -68,9 +68,8 @@ export const Default = {
 };
 export const VariableAmplitude = {
   args: {
-    fullWidth: true,
     startFull: true,
-    waves: waves,
+    waves,
     height: 500,
   },
 };
